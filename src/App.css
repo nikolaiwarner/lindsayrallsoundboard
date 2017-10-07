@@ -1,0 +1,153 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+html, body {
+  background-color: #FF88FF;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #FFEEFF;
+  padding: 20px;
+  color: #00FFFF;
+  position: relative;
+  /*display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;*/
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.App-footer {
+  background-color: #FFEEFF;
+  padding: 40px;
+  text-align: center;
+  color: #FF00FF;
+}
+
+.App-footer a {
+  color: #FF00FF;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.button {
+  transition: all 0.2s;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  border: 1px solid #000;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0px 3px 7px 0px #000;
+  background-color: #00ffec;
+  color: #fff;
+}
+.button:hover {
+  transform: scale(1.4) rotate(8deg);
+  background-color: #FFFF00;
+  color: #000;
+}
+.button.on {
+  background-color: #FFFF00;
+  color: #000;
+}
+
+.buttonImage {
+  width: 40px;
+}
+
+.grow {
+  animation: grow 1 0.2s linear;
+}
+
+@keyframes grow {
+  from { transform: scale(1); }
+  to { transform: scale(3); }
+}
+
+.title {
+  width: 400px;
+  height: 150px;
+}
+
+.thousand {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  top: 0
+}
+
+.face-container {
+  position: relative;
+  /*transform-origin: center;*/
+  height: 250px;
+  /*width: 250px;*/
+  border-radius: 250px;
+  border: 1px solid #000;
+  cursor: pointer;
+  box-shadow: 0px 3px 7px 0px #000;
+  background-color: #00ffec;
+  color: #fff;
+  text-align: centerl
+}
+@keyframes bobble {
+  0% { transform: scale(1) rotate(-4deg) }
+  75% { transform: scale(1.05) rotate(0deg) }
+  100% { transform: scale(1) rotate(-4deg) }
+}
+
+.face-top {
+  animation: bobble infinite 4s linear;
+
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  margin-left: -100px;
+  transform: scale(1.1);
+}
+
+.face-bottom {
+  animation: bobble infinite 4s linear;
+
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  margin-left: -100px;
+  transform: scale(1.1);
+}
+
+.face-bottom.down {
+  animation: openmouth 1 0.3s linear;
+}
+@keyframes openmouth {
+  0% { transform: translateY(0px) }
+  75% { transform: translateY(20px) }
+  100% { transform: translateY(0px) }
+}
