@@ -1,5 +1,4 @@
 import './App.css'
-import 'aframe'
 import {Howl} from 'howler'
 import React, { Component } from 'react'
 
@@ -60,8 +59,10 @@ class App extends Component {
         <header className='App-header'>
           <img className={'title'} id='title' src='images/title.png' />
           <div className={'face-container'} onClick={this.onClickFace.bind(this)}>
-            <img className={'face-top'} id='face' src='images/lr4_top.gif' />
-            <img className={'face-bottom'} ref={'faceBottom'} id='face' src='images/lr4_bottom.gif' />
+            <div className={'face-circle'}>
+              <img className={'face-top'} id='face' src='images/lr4_top.gif' />
+              <img className={'face-bottom'} ref={'faceBottom'} id='face' src='images/lr4_bottom.gif' />
+            </div>
           </div>
           <a href='http://buttonsare.cool/'>
             <img className={'thousand'} id='thousand' src='images/thousand.png' />
@@ -103,7 +104,12 @@ class App extends Component {
 class Button extends Component {
   constructor (props) {
     super(props)
+    this.soundId = 101 - this.props.id // Reverse sounds
     this.imageId = randomInt(1, 5)
+    this.src = `images/lr${this.imageId}.gif`
+    if (this.props.id === 8) {
+      this.src = 'images/wallie.gif'
+    }
     this.playSound = this.playSound.bind(this)
   }
 
@@ -112,9 +118,8 @@ class Button extends Component {
   }
 
   playSound () {
-    let id = 101 - this.props.id // Reverse sounds
     new Howl({
-      src: [`sounds/${id}.mp3`],
+      src: [`sounds/${this.soundId}.mp3`],
       autoplay: true,
       volume: 1,
       rate: this.props.rate
@@ -129,7 +134,7 @@ class Button extends Component {
   render () {
     return (
       <button className={'button'} ref={'button'} onClick={this.playSound}>
-        <img src={`images/lr${this.imageId}.gif`} ref={'image'} className={'buttonImage'} />
+        <img src={this.src} ref={'image'} className={'buttonImage'} />
       </button>
     )
   }
